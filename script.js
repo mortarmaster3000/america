@@ -38,11 +38,21 @@ const lsdprice = document.getElementById("lsdprice");
 const threat = document.getElementById("threat");
 const threatprice = document.getElementById("threatprice");
 
+const generator = document.getElementById("generator");
+const generatorprice = document.getElementById("generatorprice");
+
+const fusion = document.getElementById("fusion");
+const fusionprice = document.getElementById("fusionprice");
+
+const oil = document.getElementById("oil");
+const oilprice = document.getElementById("oilprice");
+
+const whips = document.getElementById("whips");
+const whipsprice = document.getElementById("whipsprice")
+
 upgradesToggle.addEventListener("click", () => {
     upgradesPanel.classList.toggle("open");
-    upgradesToggle.textContent = upgradesPanel.classList.contains("open")
-        ? "▲"
-        : "▼";
+    upgradesToggle.textContent = "Upgrades";
 });
 
 
@@ -64,12 +74,16 @@ let cyberMultiply = 0
 
 let priceofchild = 10
 let priceoflsd = 100
+let priceofwhips = 750
 let priceoflabor = 50
 let priceofthreat = 250
 let priceofclanker = 125
+let priceofgenerator = 500
 let priceofdiabetes = 500
 let priceofnuclear = 750
+let priceoffusion = 1500
 let priceofcyber = 1250
+let priceofoil = 2250
 
 let childmoney = 0.005
 let labormoney = 0.02
@@ -78,7 +92,12 @@ let nuclearmoney = 0.15
 let cybermoney = 0.25
 
 let childlsd = 1
+let childlaborwhips = 1
 let laborthreat = 1
+let clankergenerator = 1
+let nuclearfusion = 1
+let cyberoil = 1
+
 
 let childrate = 0
 let laborrate = 0
@@ -154,6 +173,17 @@ function buyLSD() {
     }
 }
 lsd.addEventListener("click", buyLSD);
+
+function buyWhips() {
+    if (count >= priceofwhips) {
+        childmoney = childmoney * 2;
+        count -= priceofwhips;
+        whips.style.opacity = "0.5";
+        whips.disabled = true;
+        whips.style.display = "none";
+    }
+}
+whips.addEventListener("click", buyWhips);
 
 
 function buyLaborers() {
@@ -244,6 +274,17 @@ function buyClankers() {
 };
 clanker.addEventListener("click", buyClankers);
 
+function buyGenerator() {
+    if (count >= priceofgenerator) {
+        clankermoney = clankermoney * 1.5;
+        count -= priceofgenerator;
+        generator.style.opacity = "0.5";
+        generator.disabled = true;
+        generator.style.display = "none";
+    }
+}
+generator.addEventListener("click", buyGenerator);
+
 function buyDiabetes() {
 
     if (count >= priceofdiabetes) {
@@ -320,6 +361,17 @@ function buyNuclear() {
 };
 nuclear.addEventListener("click", buyNuclear);
 
+function buyFusion() {
+    if (count >= priceoffusion) {
+        nuclearmoney = nuclearmoney * 1.5;
+        count -= priceoffusion;
+        fusion.style.opacity = "0.5";
+        fusion.disabled = true;
+        fusion.style.display = "none";
+    }
+}
+fusion.addEventListener("click", buyFusion);
+
 function buyCyberTrump() {
 
     if (count >= priceofcyber) {
@@ -357,6 +409,17 @@ function buyCyberTrump() {
     }
 };
 cyber.addEventListener("click", buyCyberTrump);
+
+function buyOil() {
+    if (count >= priceofoil) {
+        cybermoney = cybermoney * 1.5;
+        count -= priceofoil;
+        oil.style.opacity = "0.5";
+        oil.disabled = true;
+        oil.style.display = "none";
+    }
+}
+oil.addEventListener("click", buyOil);
 
 function autoChild() {
     count += Camt * childmoney;
@@ -428,6 +491,30 @@ function updateShop() {
     } else {
         threat.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofgenerator) {
+        generator.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        generator.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceoffusion) {
+        fusion.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        fusion.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofoil) {
+        oil.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        oil.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofwhips) {
+        whips.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        whips.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
     } 
     
 
@@ -440,4 +527,4 @@ setInterval(autoLabor, 10);
 setInterval(autoClanker, 10);
 setInterval(autoNuclear, 10);
 setInterval(autoCyber, 10);
-setInterval(updateRate, 10)
+setInterval(updateRate, 10);
