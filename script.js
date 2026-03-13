@@ -27,6 +27,10 @@ const cyber = document.getElementById("cyber");
 const cybershopamt = document.getElementById("cybershopamt");
 const cyberprice = document.getElementById("cyberprice");
 
+const rdr = document.getElementById("rdr");
+const rdrshopamt = document.getElementById("rdrshopamt");
+const rdrprice = document.getElementById("rdrprice");
+
 const secretbutton = document.getElementById("secretbutton");
 
 const upgradesPanel = document.getElementById("upgrades-panel");
@@ -68,6 +72,11 @@ const oilprice = document.getElementById("oilprice");
 const jaw = document.getElementById("jaw");
 const jawprice = document.getElementById("jawprice");
 
+const dlc = document.getElementById("dlc");
+const dlcprice = document.getElementById("dlcprice");
+
+const tax = document.getElementById("tax");
+const taxprice = document.getElementById("taxprice");
 
 upgradesToggle.addEventListener("click", () => {
     upgradesPanel.classList.toggle("open");
@@ -83,6 +92,7 @@ let Clamt = 0
 let Damt = 0
 let Namt = 0
 let Cyamt = 0
+let Ramt = 0
 
 let childMultiply = 0
 let laborMultiply = 0
@@ -90,6 +100,7 @@ let clankerMultiply = 0
 let diabetesMultiply = 0
 let nuclearMultiply = 0
 let cyberMultiply = 0
+let rdrMultiply = 0
 
 let priceofchild = 10
 let priceoflsd = 100
@@ -115,11 +126,19 @@ let priceofcyber = 1250
 let priceofoil = 2250
 let priceofjaw = 3000
 
+let priceofrdr = 2000
+let priceofdlc = 3500
+
+let priceoftax = 5000
+
 let childmoney = 0.005
 let labormoney = 0.02
 let clankermoney = 0.05
 let nuclearmoney = 0.15
 let cybermoney = 0.25
+let rdrmoney = 0.50
+let othermoney = childmoney + labormoney + clankermoney + nuclearmoney + cybermoney
+
 
 let childlsd = 1
 let childlaborwhips = 1
@@ -133,6 +152,8 @@ let nuclearfusion = 1
 let nuclearnuke = 1
 let cyberoil = 1
 let cyberjaw = 1
+let rdrdlc = 1
+let othertax = 1
 
 
 let childrate = 0
@@ -140,6 +161,7 @@ let laborrate = 0
 let clankerrate = 0
 let nuclearrate = 0
 let cyberrate = 0
+let rdrrate = 0
 
 
 function clickButton() {
@@ -192,7 +214,7 @@ function buyChildren() {
 
         priceofchild = Math.floor(priceofchild * childMultiply);
         childprice.textContent = priceofchild;
-        childrate = .5 * childlsd * childlaborwhips
+        childrate = .5 * childlsd * childlaborwhips * othertax
     } else {
 
     }
@@ -254,7 +276,7 @@ function buyLaborers() {
     }
     priceoflabor = Math.floor(priceoflabor * laborMultiply);
     laborprice.textContent = priceoflabor;
-    laborrate = 2 * laborthreat * laborhours
+    laborrate = 2 * laborthreat * laborhours * othertax
     } else {
 
     }
@@ -315,7 +337,7 @@ function buyClankers() {
     }
     priceofclanker = Math.floor(priceofclanker * clankerMultiply);
     clankerprice.textContent = priceofclanker;
-    clankerrate = 5 * clankergenerator * clankerdata
+    clankerrate = 5 * clankergenerator * clankerdata * othertax
     } else {
 
     }
@@ -436,7 +458,7 @@ function buyNuclear() {
     }
     priceofnuclear = Math.floor(priceofnuclear * nuclearMultiply);
     nuclearprice.textContent = priceofnuclear;
-    nuclearrate = 15 * nuclearfusion
+    nuclearrate = 15 * nuclearfusion * nuclearnuke * othertax
     } else {
 
     }
@@ -497,7 +519,7 @@ function buyCyberTrump() {
     }
     priceofcyber = Math.floor(priceofcyber * cyberMultiply);
     cyberprice.textContent = priceofcyber;
-    cyberrate = 25 * cyberoil
+    cyberrate = 25 * cyberoil * cyberjaw * othertax
     } else {
 
     }
@@ -526,6 +548,69 @@ function buyJaw() {
 }
 jaw.addEventListener("click", buyJaw);
 
+function buyRdr() {
+
+    if (count >= priceofrdr) {
+    Ramt += 1; 
+    rdrshopamt.textContent = Ramt;
+    count -= priceofrdr;
+    document.getElementById("rdrprice").textContent = priceofrdr;
+
+    if (Ramt < 5) {
+        rdrMultiply = 1.55;
+    } else if (Ramt < 10) {
+        rdrMultiply = 1.3;
+    } else if (Ramt < 15) {
+        rdrMultiply = 1.2
+    } else if (Ramt < 20) {
+        rdrMultiply = 1.1
+    } else if (Ramt < 25) {
+        rdrMultiply = 1.05
+    } else if (Ramt > 50) {
+        rdrMultiply = 1.02
+    } else if (Ramt > 75) {
+        rdrMultiply = 1.01
+    } else if (Ramt > 100) {
+        rdrMultiply = 1.05
+    } else if (Ramt > 125) {
+        rdrMultiply = 1.02
+    }
+     else if (Ramt > 150) {
+        rdrMultiply = 1.001
+    }
+    priceofrdr = Math.floor(priceofrdr * rdrMultiply);
+    rdrprice.textContent = priceofrdr;
+    rdrrate = 50
+    } else {
+
+    }
+};
+rdr.addEventListener("click", buyRdr);
+
+function buyDlc() {
+    if (count >= priceofdlc) {
+        rdrmoney = rdrmoney * 1.5;
+        count -= priceofdlc;
+        dlc.style.opacity = "0.5";
+        dlc.disabled = true;
+        dlc.style.display = "none";
+    }
+}
+dlc.addEventListener("click", buyDlc);
+
+
+
+function buyTax() {
+    if (count >= priceoftax) {
+        othermoney = othermoney * 2;
+        count -= priceoftax;
+        tax.style.opacity = "0.5";
+        tax.disabled = true;
+        tax.style.display = "none";
+    }
+}
+tax.addEventListener("click", buyTax);
+
 function autoChild() {
     count += Camt * childmoney;
     number.textContent = Math.floor(count);
@@ -551,8 +636,13 @@ function autoCyber() {
     number.textContent = Math.floor(count);
 }
 
+function autoRdr() {
+    count += Ramt * rdrmoney;
+    number.textContent = Math.floor(count);
+}
+
 function updateRate() {
-    const perSecond = (Camt * childmoney * 100) + (Lamt * labormoney * 100) + (Clamt * clankermoney * 100) + (Namt * nuclearmoney * 100) + (Cyamt * cybermoney * 100);
+    const perSecond = (Camt * childmoney * 100) + (Lamt * labormoney * 100) + (Clamt * clankermoney * 100) + (Namt * nuclearmoney * 100) + (Cyamt * cybermoney * 100) + (Ramt * rdrmoney * 100);;
     rate.textContent = perSecond.toFixed(1);
 }
 
@@ -584,6 +674,10 @@ function updateShop() {
         cyber.style.opacity = "1";
     } else {
         cyber.style.opacity = "0.5";
+    }     if (count >= priceofrdr) {
+        rdr.style.opacity = "1";
+    } else {
+        rdr.style.opacity = "0.5";
     }     if (count >= priceoflsd) {
         lsd.style.opacity = "1";
         upgradesPanel.style.opacity = "1";
@@ -656,6 +750,18 @@ function updateShop() {
     } else {
         jaw.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofdlc) {
+        dlc.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        dlc.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceoftax) {
+        tax.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        tax.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
     }
         
 
@@ -668,4 +774,5 @@ setInterval(autoLabor, 10);
 setInterval(autoClanker, 10);
 setInterval(autoNuclear, 10);
 setInterval(autoCyber, 10);
+setInterval(autoRdr, 10);
 setInterval(updateRate, 10);
