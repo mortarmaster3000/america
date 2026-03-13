@@ -35,20 +35,39 @@ const upgradesToggle = document.getElementById("upgrades-toggle");
 const lsd = document.getElementById("lsd");
 const lsdprice = document.getElementById("lsdprice");
 
+const whips = document.getElementById("whips");
+const whipsprice = document.getElementById("whipsprice")
+
 const threat = document.getElementById("threat");
 const threatprice = document.getElementById("threatprice");
+
+const hours = document.getElementById("hours");
+const hoursprice = document.getElementById("hoursprice");
 
 const generator = document.getElementById("generator");
 const generatorprice = document.getElementById("generatorprice");
 
+const vaccine = document.getElementById("vaccine");
+const vaccineprice = document.getElementById("vaccineprice")
+
+const type = document.getElementById("type");
+const typeprice = document.getElementById("typeprice");
+
+const data = document.getElementById("data");
+const dataprice = document.getElementById("dataprice");
+
 const fusion = document.getElementById("fusion");
 const fusionprice = document.getElementById("fusionprice");
+
+const nuke = document.getElementById("nuke");
+const nukeprice = document.getElementById("nukeprice");
 
 const oil = document.getElementById("oil");
 const oilprice = document.getElementById("oilprice");
 
-const whips = document.getElementById("whips");
-const whipsprice = document.getElementById("whipsprice")
+const jaw = document.getElementById("jaw");
+const jawprice = document.getElementById("jawprice");
+
 
 upgradesToggle.addEventListener("click", () => {
     upgradesPanel.classList.toggle("open");
@@ -75,15 +94,26 @@ let cyberMultiply = 0
 let priceofchild = 10
 let priceoflsd = 100
 let priceofwhips = 750
+
 let priceoflabor = 50
 let priceofthreat = 250
+let priceofhours = 1000
+
 let priceofclanker = 125
 let priceofgenerator = 500
+let priceofdata = 1250
+
 let priceofdiabetes = 500
+let priceofvaccine = 1000
+let priceoftype = 1750
+
 let priceofnuclear = 750
 let priceoffusion = 1500
+let priceofnuke = 2500
+
 let priceofcyber = 1250
 let priceofoil = 2250
+let priceofjaw = 3000
 
 let childmoney = 0.005
 let labormoney = 0.02
@@ -94,9 +124,15 @@ let cybermoney = 0.25
 let childlsd = 1
 let childlaborwhips = 1
 let laborthreat = 1
+let laborhours = 1
 let clankergenerator = 1
+let clankerdata = 1
+let diabetesvaccine = 1
+let diabetestype = 1
 let nuclearfusion = 1
+let nuclearnuke = 1
 let cyberoil = 1
+let cyberjaw = 1
 
 
 let childrate = 0
@@ -108,7 +144,7 @@ let cyberrate = 0
 
 function clickButton() {
     if (Damt >= 1) {
-        count += Damt * 2;
+        count += Damt * 2 * diabetesvaccine * diabetestype;
         number.textContent = Math.floor(count);
     } else {
     count += 1;
@@ -156,7 +192,7 @@ function buyChildren() {
 
         priceofchild = Math.floor(priceofchild * childMultiply);
         childprice.textContent = priceofchild;
-        childrate = .5 * childlsd
+        childrate = .5 * childlsd * childlaborwhips
     } else {
 
     }
@@ -218,7 +254,7 @@ function buyLaborers() {
     }
     priceoflabor = Math.floor(priceoflabor * laborMultiply);
     laborprice.textContent = priceoflabor;
-    laborrate = 2 * laborthreat
+    laborrate = 2 * laborthreat * laborhours
     } else {
 
     }
@@ -235,6 +271,17 @@ function buyThreat() {
     }
 }
 threat.addEventListener("click", buyThreat);
+
+function buyHours() {
+    if (count >= priceofhours) {
+        labormoney = labormoney * 2;
+        count -= priceofhours;
+        hours.style.opacity = "0.5";
+        hours.disabled = true;
+        hours.style.display = "none";
+    }
+}
+hours.addEventListener("click", buyHours);
 
 function buyClankers() {
 
@@ -268,6 +315,7 @@ function buyClankers() {
     }
     priceofclanker = Math.floor(priceofclanker * clankerMultiply);
     clankerprice.textContent = priceofclanker;
+    clankerrate = 5 * clankergenerator * clankerdata
     } else {
 
     }
@@ -284,6 +332,17 @@ function buyGenerator() {
     }
 }
 generator.addEventListener("click", buyGenerator);
+
+function buyData() {
+    if (count >= priceofdata) {
+        clankermoney = clankermoney * 2;
+        count -= priceofdata;
+        data.style.opacity = "0.5";
+        data.disabled = true;
+        data.style.display = "none";
+    }
+}
+data.addEventListener("click", buyData);
 
 function buyDiabetes() {
 
@@ -323,6 +382,28 @@ function buyDiabetes() {
 };
 diabetes.addEventListener("click", buyDiabetes)
 
+function buyVaccine() {
+    if (count >= priceofvaccine) {
+        diabetesvaccine = 2;
+        count -= priceofvaccine;
+        vaccine.style.opacity = "0.5";
+        vaccine.disabled = true;
+        vaccine.style.display = "none";
+    }
+}
+vaccine.addEventListener("click", buyVaccine);
+
+function buyType() {
+    if (count >= priceoftype) {
+        diabetestype = 2;
+        count -= priceoftype;
+        type.style.opacity = "0.5";
+        type.disabled = true;
+        type.style.display = "none";
+    }
+}
+type.addEventListener("click", buyType);
+
 function buyNuclear() {
 
     if (count >= priceofnuclear) {
@@ -355,6 +436,7 @@ function buyNuclear() {
     }
     priceofnuclear = Math.floor(priceofnuclear * nuclearMultiply);
     nuclearprice.textContent = priceofnuclear;
+    nuclearrate = 15 * nuclearfusion
     } else {
 
     }
@@ -371,6 +453,17 @@ function buyFusion() {
     }
 }
 fusion.addEventListener("click", buyFusion);
+
+function buyNuke() {
+    if (count >= priceofnuke) {
+        nuclearmoney = nuclearmoney * 2;
+        count -= priceofnuke;
+        nuke.style.opacity = "0.5";
+        nuke.disabled = true;
+        nuke.style.display = "none";
+    }
+}
+nuke.addEventListener("click", buyNuke);
 
 function buyCyberTrump() {
 
@@ -404,6 +497,7 @@ function buyCyberTrump() {
     }
     priceofcyber = Math.floor(priceofcyber * cyberMultiply);
     cyberprice.textContent = priceofcyber;
+    cyberrate = 25 * cyberoil
     } else {
 
     }
@@ -420,6 +514,17 @@ function buyOil() {
     }
 }
 oil.addEventListener("click", buyOil);
+
+function buyJaw() {
+    if (count >= priceofjaw) {
+        cybermoney = cybermoney * 2;
+        count -= priceofjaw;
+        jaw.style.opacity = "0.5";
+        jaw.disabled = true;
+        jaw.style.display = "none";
+    }
+}
+jaw.addEventListener("click", buyJaw);
 
 function autoChild() {
     count += Camt * childmoney;
@@ -485,11 +590,23 @@ function updateShop() {
     } else {
         lsd.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
-    }     if (count >= priceofthreat) {
+    }    if (count >= priceofwhips) {
+       whips.style.opacity = "1";
+       upgradesPanel.style.opacity = "1";
+   } else {
+       whips.style.opacity = "0.5";
+       upgradesPanel.style.opacity = "1";
+   }     if (count >= priceofthreat) {
         threat.style.opacity = "1";
         upgradesPanel.style.opacity = "1";
     } else {
         threat.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }    if (count >= priceofhours) {
+        hours.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        hours.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
     }     if (count >= priceofgenerator) {
         generator.style.opacity = "1";
@@ -497,11 +614,35 @@ function updateShop() {
     } else {
         generator.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
-    }     if (count >= priceoffusion) {
+    }     if (count >= priceofdata) {
+        data.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        data.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofvaccine) {
+        vaccine.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        vaccine.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceoftype) {
+        type.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        type.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }      if (count >= priceoffusion) {
         fusion.style.opacity = "1";
         upgradesPanel.style.opacity = "1";
     } else {
         fusion.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }      if (count >= priceofnuke) {
+        nuke.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        nuke.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
     }     if (count >= priceofoil) {
         oil.style.opacity = "1";
@@ -509,14 +650,14 @@ function updateShop() {
     } else {
         oil.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
-    }     if (count >= priceofwhips) {
-        whips.style.opacity = "1";
+    }     if (count >= priceofjaw) {
+        jaw.style.opacity = "1";
         upgradesPanel.style.opacity = "1";
     } else {
-        whips.style.opacity = "0.5";
+        jaw.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
-    } 
-    
+    }
+        
 
     
 };

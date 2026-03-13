@@ -160,6 +160,10 @@ body {
 
 #upgrades-panel.open #upgrades-toggle {
     right: 0px;
+    border-radius: 8px 0 0 8px;
+    border-left: 2px solid rgba(255, 255, 255, 0.15);
+    border-right: none;
+    transform: translateY(-50%);
 }
 
 #upgrades-menu {
@@ -178,7 +182,7 @@ body {
 }
 
 .upgrade-category-label {
-    font-size: 12px;
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.5);
     margin-bottom: 8px;
     padding-left: 2px;
@@ -269,3 +273,27 @@ body {
     line-height: 1;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 16px 0;
+}
+
+#upgradetitle {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, red, white, blue, red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradient-animation 2s linear infinite;
+}
+
+@keyframes gradient-animation {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: -200% 50%; }
+}
