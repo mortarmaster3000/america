@@ -15,6 +15,10 @@ const clanker = document.getElementById("clanker");
 const clankershopamt = document.getElementById("clankershopamt");
 const clankerprice = document.getElementById("clankerprice");
 
+const mcdonalds = document.getElementById("mcdonalds");
+const mcdonaldsshopamt = document.getElementById("mcdonaldsshopamt");
+const mcdonaldsprice = document.getElementById("mcdonaldsprice");
+
 const diabetes = document.getElementById("diabetes");
 const diabetesshopamt = document.getElementById("diabetesshopamt");
 const diabetesprice = document.getElementById("diabetesprice");
@@ -42,23 +46,44 @@ const lsdprice = document.getElementById("lsdprice");
 const whips = document.getElementById("whips");
 const whipsprice = document.getElementById("whipsprice")
 
+const candy = document.getElementById("candy");
+const candyprice = document.getElementById("candyprice");
+
 const threat = document.getElementById("threat");
 const threatprice = document.getElementById("threatprice");
 
 const hours = document.getElementById("hours");
 const hoursprice = document.getElementById("hoursprice");
 
+const law = document.getElementById("law");
+const lawprice = document.getElementById("lawprice");
+
 const generator = document.getElementById("generator");
 const generatorprice = document.getElementById("generatorprice");
 
+const data = document.getElementById("data");
+const dataprice = document.getElementById("dataprice");
+
+const seahorse = document.getElementById("seahorse");
+const seahorseprice = document.getElementById("seahorseprice");
+
+const health = document.getElementById("health");
+const healthprice = document.getElementById("healthprice");
+
+const drive = document.getElementById("drive");
+const driveprice = document.getElementById("driveprice");
+
+const play = document.getElementById("play");
+const playprice = document.getElementById("playprice");
+
 const vaccine = document.getElementById("vaccine");
-const vaccineprice = document.getElementById("vaccineprice")
+const vaccineprice = document.getElementById("vaccineprice");
 
 const type = document.getElementById("type");
 const typeprice = document.getElementById("typeprice");
 
-const data = document.getElementById("data");
-const dataprice = document.getElementById("dataprice");
+const nano = document.getElementById("nano");
+const nanoprice = document.getElementById("nanoprice");
 
 const fusion = document.getElementById("fusion");
 const fusionprice = document.getElementById("fusionprice");
@@ -66,14 +91,26 @@ const fusionprice = document.getElementById("fusionprice");
 const nuke = document.getElementById("nuke");
 const nukeprice = document.getElementById("nukeprice");
 
+const quantum = document.getElementById("quantum");
+const quantumprice = document.getElementById("quantumprice");
+
 const oil = document.getElementById("oil");
 const oilprice = document.getElementById("oilprice");
 
 const jaw = document.getElementById("jaw");
 const jawprice = document.getElementById("jawprice");
 
+const cflag = document.getElementById("cflag");
+const cflagprice = document.getElementById("cflagprice");
+
 const dlc = document.getElementById("dlc");
 const dlcprice = document.getElementById("dlcprice");
+
+const anti = document.getElementById("anti");
+const antiprice = document.getElementById("antiprice");
+
+const mod = document.getElementById("mod");
+const modprice = document.getElementById("modprice");
 
 const tax = document.getElementById("tax");
 const taxprice = document.getElementById("taxprice");
@@ -89,6 +126,7 @@ let count = 0
 let Lamt = 0
 let Camt = 0
 let Clamt = 0
+let Mamt = 0
 let Damt = 0
 let Namt = 0
 let Cyamt = 0
@@ -97,6 +135,7 @@ let Ramt = 0
 let childMultiply = 0
 let laborMultiply = 0
 let clankerMultiply = 0
+let mcdonaldsMultiply = 0
 let diabetesMultiply = 0
 let nuclearMultiply = 0
 let cyberMultiply = 0
@@ -104,61 +143,95 @@ let rdrMultiply = 0
 
 let priceofchild = 10
 let priceoflsd = 100
-let priceofwhips = 750
+let priceofwhips = 300
+let priceofcandy = 800
 
 let priceoflabor = 50
 let priceofthreat = 250
-let priceofhours = 1000
+let priceofhours = 500
+let priceoflaw = 950
 
 let priceofclanker = 125
-let priceofgenerator = 500
-let priceofdata = 1250
+let priceofgenerator = 350
+let priceofdata = 750
+let priceofseahorse = 1000
+
+let priceofmcdonalds = 250
+let priceofhealth = 500
+let priceofdrive = 850
+let priceofplay = 1150
 
 let priceofdiabetes = 500
-let priceofvaccine = 1000
-let priceoftype = 1750
+let priceofvaccine = 850
+let priceoftype = 1250
+let priceofnano = 1750
 
 let priceofnuclear = 750
-let priceoffusion = 1500
-let priceofnuke = 2500
+let priceoffusion = 1250
+let priceofnuke = 1750
+let priceofquantum = 2250
 
 let priceofcyber = 1250
-let priceofoil = 2250
-let priceofjaw = 3000
+let priceofoil = 1750
+let priceofjaw = 2250
+let priceofcflag = 3000
 
 let priceofrdr = 2000
-let priceofdlc = 3500
+let priceofdlc = 2750
+let priceofanti = 3500
+let priceofmod = 4250
 
 let priceoftax = 5000
 
 let childmoney = 0.005
 let labormoney = 0.02
 let clankermoney = 0.05
+let mcdonaldsmoney = 0.1
 let nuclearmoney = 0.15
 let cybermoney = 0.25
 let rdrmoney = 0.50
-let othermoney = childmoney + labormoney + clankermoney + nuclearmoney + cybermoney
+let othermoney = childmoney + labormoney + clankermoney + mcdonaldsmoney + nuclearmoney + cybermoney + rdrmoney 
 
 
 let childlsd = 1
 let childlaborwhips = 1
+let childcandy = 1
+
 let laborthreat = 1
 let laborhours = 1
+let laborlaw = 1
+
 let clankergenerator = 1
 let clankerdata = 1
+let clankerseahorse = 1
+
+let mcdonaldshealth = 1
+let mcdonaldsdrive = 1
+let mcdonaldsplay = 1
+
 let diabetesvaccine = 1
 let diabetestype = 1
+let diabetesnano = 1
+
 let nuclearfusion = 1
 let nuclearnuke = 1
+let nuclearquantum = 1
+
 let cyberoil = 1
 let cyberjaw = 1
+let cybercflag = 1
+
 let rdrdlc = 1
+let rdranti = 1
+let rdrmod = 1
+
 let othertax = 1
 
 
 let childrate = 0
 let laborrate = 0
 let clankerrate = 0
+let mcdonaldsrate = 0
 let nuclearrate = 0
 let cyberrate = 0
 let rdrrate = 0
@@ -166,7 +239,7 @@ let rdrrate = 0
 
 function clickButton() {
     if (Damt >= 1) {
-        count += Damt * 2 * diabetesvaccine * diabetestype;
+        count += Damt * 2 * diabetesvaccine * diabetestype * diabetesnano;
         number.textContent = Math.floor(count);
     } else {
     count += 1;
@@ -214,7 +287,7 @@ function buyChildren() {
 
         priceofchild = Math.floor(priceofchild * childMultiply);
         childprice.textContent = priceofchild;
-        childrate = .5 * childlsd * childlaborwhips * othertax
+        childrate = .5 * childlsd * childlaborwhips * childcandy * othertax
     } else {
 
     }
@@ -242,6 +315,17 @@ function buyWhips() {
     }
 }
 whips.addEventListener("click", buyWhips);
+
+function buyCandy() {
+    if (count >= priceofcandy) {
+        childmoney = childmoney * 2;
+        count -= priceofcandy;
+        candy.style.opacity = "0.5";
+        candy.disabled = true;
+        candy.style.display = "none";
+    }
+}
+candy.addEventListener("click", buyCandy);
 
 
 function buyLaborers() {
@@ -276,7 +360,7 @@ function buyLaborers() {
     }
     priceoflabor = Math.floor(priceoflabor * laborMultiply);
     laborprice.textContent = priceoflabor;
-    laborrate = 2 * laborthreat * laborhours * othertax
+    laborrate = 2 * laborthreat * laborhours * laborlaw * othertax
     } else {
 
     }
@@ -304,6 +388,17 @@ function buyHours() {
     }
 }
 hours.addEventListener("click", buyHours);
+
+function buyLaw() {
+    if (count >= priceoflaw) {
+        labormoney = labormoney * 2;
+        count -= priceoflaw;
+        law.style.opacity = "0.5";
+        law.disabled = true;
+        law.style.display = "none";
+    }
+}
+law.addEventListener("click", buyLaw);
 
 function buyClankers() {
 
@@ -337,7 +432,7 @@ function buyClankers() {
     }
     priceofclanker = Math.floor(priceofclanker * clankerMultiply);
     clankerprice.textContent = priceofclanker;
-    clankerrate = 5 * clankergenerator * clankerdata * othertax
+    clankerrate = 5 * clankergenerator * clankerdata * clankerseahorse * othertax
     } else {
 
     }
@@ -365,6 +460,89 @@ function buyData() {
     }
 }
 data.addEventListener("click", buyData);
+
+function buySeahorse() {
+    if (count >= priceofseahorse) {
+        clankermoney = clankermoney * 2;
+        count -= priceofseahorse;
+        seahorse.style.opacity = "0.5";
+        seahorse.disabled = true;
+        seahorse.style.display = "none";
+    }
+}
+seahorse.addEventListener("click", buySeahorse);
+
+function buyMcdonalds() {
+
+    if (count >= priceofmcdonalds) {
+    Mamt += 1; 
+    mcdonaldsshopamt.textContent = Mamt;
+    count -= priceofmcdonalds;
+    document.getElementById("mcdonaldsprice").textContent = priceofmcdonalds;
+
+    if (Mamt < 5) {
+        mcdonaldsMultiply = 1.55;
+    } else if (Mamt < 10) {
+        mcdonaldsMultiply = 1.3;
+    } else if (Mamt < 15) {
+        mcdonaldsMultiply = 1.2
+    } else if (Mamt < 20) {
+        mcdonaldsMultiply = 1.1
+    } else if (Mamt < 25) {
+        mcdonaldsMultiply = 1.05
+    } else if (Mamt > 50) {
+        mcdonaldsMultiply = 1.02
+    } else if (Mamt > 75) {
+        mcdonaldsMultiply = 1.01
+    } else if (Mamt > 100) {
+        mcdonaldsMultiply = 1.05
+    } else if (Mamt > 125) {
+        mcdonaldsMultiply = 1.02
+    }
+     else if (Mamt > 150) {
+        mcdonaldsMultiply = 1.001
+    }
+    priceofmcdonalds = Math.floor(priceofmcdonalds * mcdonaldsMultiply);
+    mcdonaldsprice.textContent = priceofmcdonalds;
+    mcdonaldsrate = 10 * mcdonaldshealth * mcdonaldsdrive * mcdonaldsplay *othertax
+    } else {
+
+    }
+};
+mcdonalds.addEventListener("click", buyMcdonalds);
+
+function buyHealth() {
+    if (count >= priceofhealth) {
+        mcdonaldsmoney = mcdonaldsmoney * 1.5;
+        count -= priceofhealth;
+        health.style.opacity = "0.5";
+        health.disabled = true;
+        health.style.display = "none";
+    }
+}
+health.addEventListener("click", buyHealth);
+
+function buyDrive() {
+    if (count >= priceofdrive) {
+        mcdonaldsmoney = mcdonaldsmoney * 2;
+        count -= priceofdrive;
+        drive.style.opacity = "0.5";
+        drive.disabled = true;
+        drive.style.display = "none";
+    }
+}
+drive.addEventListener("click", buyDrive);
+
+function buyPlay() {
+    if (count >= priceofplay) {
+        mcdonaldsmoney = mcdonaldsmoney * 2;
+        count -= priceofplay;
+        play.style.opacity = "0.5";
+        play.disabled = true;
+        play.style.display = "none";
+    }
+}
+play.addEventListener("click", buyPlay);
 
 function buyDiabetes() {
 
@@ -426,6 +604,17 @@ function buyType() {
 }
 type.addEventListener("click", buyType);
 
+function buyNano() {
+    if (count >= priceofnano) {
+        diabetesnano = 2;
+        count -= priceofnano;
+        nano.style.opacity = "0.5";
+        nano.disabled = true;
+        nano.style.display = "none";
+    }
+}
+nano.addEventListener("click", buyNano);
+
 function buyNuclear() {
 
     if (count >= priceofnuclear) {
@@ -458,7 +647,7 @@ function buyNuclear() {
     }
     priceofnuclear = Math.floor(priceofnuclear * nuclearMultiply);
     nuclearprice.textContent = priceofnuclear;
-    nuclearrate = 15 * nuclearfusion * nuclearnuke * othertax
+    nuclearrate = 15 * nuclearfusion * nuclearnuke * nuclearquantum * othertax
     } else {
 
     }
@@ -486,6 +675,17 @@ function buyNuke() {
     }
 }
 nuke.addEventListener("click", buyNuke);
+
+function buyQuantum() {
+    if (count >= priceofquantum) {
+        nuclearmoney = nuclearmoney * 2;
+        count -= priceofquantum;
+        quantum.style.opacity = "0.5";
+        quantum.disabled = true;
+        quantum.style.display = "none";
+    }
+}
+quantum.addEventListener("click", buyQuantum);
 
 function buyCyberTrump() {
 
@@ -519,7 +719,7 @@ function buyCyberTrump() {
     }
     priceofcyber = Math.floor(priceofcyber * cyberMultiply);
     cyberprice.textContent = priceofcyber;
-    cyberrate = 25 * cyberoil * cyberjaw * othertax
+    cyberrate = 25 * cyberoil * cyberjaw * cybercflag * othertax
     } else {
 
     }
@@ -547,6 +747,17 @@ function buyJaw() {
     }
 }
 jaw.addEventListener("click", buyJaw);
+
+function buyCflag() {
+    if (count >= priceofcflag) {
+        cybermoney = cybermoney * 2;
+        count -= priceofcflag;
+        cflag.style.opacity = "0.5";
+        cflag.disabled = true;
+        cflag.style.display = "none";
+    }
+}
+cflag.addEventListener("click", buyCflag);
 
 function buyRdr() {
 
@@ -580,7 +791,7 @@ function buyRdr() {
     }
     priceofrdr = Math.floor(priceofrdr * rdrMultiply);
     rdrprice.textContent = priceofrdr;
-    rdrrate = 50
+    rdrrate = 50 * rdrdlc * rdranti * rdrmod * othertax
     } else {
 
     }
@@ -597,6 +808,30 @@ function buyDlc() {
     }
 }
 dlc.addEventListener("click", buyDlc);
+
+function buyAnti() {
+    if (count >= priceofanti) {
+        rdrmoney = rdrmoney * 2;
+        count -= priceofanti;
+        anti.style.opacity = "0.5";
+        anti.disabled = true;
+        anti.style.display = "none";
+    }
+}
+anti.addEventListener("click", buyAnti);
+
+function buyMod() {
+    if (count >= priceofmod) {
+        rdrmoney = rdrmoney * 2;
+        count -= priceofmod;
+        mod.style.opacity = "0.5";
+        mod.disabled = true;
+        mod.style.display = "none";
+    }
+}
+mod.addEventListener("click", buyMod);
+
+
 
 
 
@@ -626,6 +861,11 @@ function autoClanker() {
     number.textContent = Math.floor(count);
 }
 
+function autoMcdonalds() {
+    count += Mamt * mcdonaldsmoney;
+    number.textContent = Math.floor(count);
+}
+
 function autoNuclear() {
     count += Namt * nuclearmoney;
     number.textContent = Math.floor(count);
@@ -642,7 +882,7 @@ function autoRdr() {
 }
 
 function updateRate() {
-    const perSecond = (Camt * childmoney * 100) + (Lamt * labormoney * 100) + (Clamt * clankermoney * 100) + (Namt * nuclearmoney * 100) + (Cyamt * cybermoney * 100) + (Ramt * rdrmoney * 100);;
+    const perSecond = (Camt * childmoney * 100) + (Lamt * labormoney * 100) + (Clamt * clankermoney * 100) + (Namt * nuclearmoney * 100) + (Cyamt * cybermoney * 100) + (Ramt * rdrmoney * 100) + (Mamt * mcdonaldsmoney * 100);
     rate.textContent = perSecond.toFixed(1);
 }
 
@@ -661,6 +901,11 @@ function updateShop() {
         clanker.style.opacity = "1";
     } else {
         clanker.style.opacity = "0.5";
+    }
+    if (count >= priceofmcdonalds) {
+        mcdonalds.style.opacity = "1";
+    } else {
+        mcdonalds.style.opacity = "0.5";
     }
     if (count >= priceofdiabetes) {
         diabetes.style.opacity = "1";
@@ -690,6 +935,12 @@ function updateShop() {
    } else {
        whips.style.opacity = "0.5";
        upgradesPanel.style.opacity = "1";
+   }     if (count >= priceofcandy) {
+       candy.style.opacity = "1";
+       upgradesPanel.style.opacity = "1";
+   } else {
+       candy.style.opacity = "0.5";
+       upgradesPanel.style.opacity = "1";
    }     if (count >= priceofthreat) {
         threat.style.opacity = "1";
         upgradesPanel.style.opacity = "1";
@@ -701,6 +952,12 @@ function updateShop() {
         upgradesPanel.style.opacity = "1";
     } else {
         hours.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }    if (count >= priceoflaw) {
+        law.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        law.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
     }     if (count >= priceofgenerator) {
         generator.style.opacity = "1";
@@ -714,6 +971,30 @@ function updateShop() {
     } else {
         data.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofseahorse) {
+        seahorse.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        seahorse.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofhealth) {
+        health.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        health.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofdrive) {
+        drive.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        drive.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofplay) {
+        play.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        play.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
     }     if (count >= priceofvaccine) {
         vaccine.style.opacity = "1";
         upgradesPanel.style.opacity = "1";
@@ -725,6 +1006,12 @@ function updateShop() {
         upgradesPanel.style.opacity = "1";
     } else {
         type.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofnano) {
+        nano.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        nano.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
     }      if (count >= priceoffusion) {
         fusion.style.opacity = "1";
@@ -738,6 +1025,12 @@ function updateShop() {
     } else {
         nuke.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
+    }      if (count >= priceofquantum) {
+        quantum.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        quantum.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
     }     if (count >= priceofoil) {
         oil.style.opacity = "1";
         upgradesPanel.style.opacity = "1";
@@ -750,11 +1043,29 @@ function updateShop() {
     } else {
         jaw.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofcflag) {
+        cflag.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        cflag.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
     }     if (count >= priceofdlc) {
         dlc.style.opacity = "1";
         upgradesPanel.style.opacity = "1";
     } else {
         dlc.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofanti) {
+        anti.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        anti.style.opacity = "0.5";
+        upgradesPanel.style.opacity = "1";
+    }     if (count >= priceofmod) {
+        mod.style.opacity = "1";
+        upgradesPanel.style.opacity = "1";
+    } else {
+        mod.style.opacity = "0.5";
         upgradesPanel.style.opacity = "1";
     }     if (count >= priceoftax) {
         tax.style.opacity = "1";
@@ -772,6 +1083,7 @@ setInterval(updateShop, 10);
 setInterval(autoChild, 10);
 setInterval(autoLabor, 10);
 setInterval(autoClanker, 10);
+setInterval(autoMcdonalds, 10);
 setInterval(autoNuclear, 10);
 setInterval(autoCyber, 10);
 setInterval(autoRdr, 10);
